@@ -93,8 +93,18 @@ body,button,input,select,textarea,th {
 
 #allwrap {
 
-	padding: 0 5px
+	padding: 0 5px;
 
+	background:url(https://view.moezx.cc/images/2018/02/05/testdogpic.gif);
+	
+	background-attachment:fixed;
+	
+	background-repeat:no-repeat;
+	
+	background-size:300px auto;
+
+	background-position:95% 92%;
+	
 }
 
 
@@ -2486,7 +2496,11 @@ a.lover:hover {
 
 	-moz-transition: all 1s;
 
-	transition: all 1
+	transition: all 1;
+
+	margin-left: auto;
+
+	margin-right: auto;
 
 }
 
@@ -3410,7 +3424,7 @@ span.kcomtime {
 
 	background-repeat: no-repeat no-repeat;
 
-	height: 80px;
+	height: 135px;
 
 	padding: 4px 6px;
 
@@ -3426,8 +3440,15 @@ span.kcomtime {
 
 	margin-bottom: -5px;
 
-	color: #444
+	color: #444;
+	
+	/* background:url(images/mmmm_6.png);
 
+	background-repeat: no-repeat;
+
+	background-size: 50px auto;
+
+	background-position: 95% 90% */
 }
 
 
