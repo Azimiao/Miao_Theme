@@ -32,33 +32,8 @@
 
   <!-- 设置缩略图显示-->
 
-  <?php
+  <?php getSingleThumb(); ?>
 
-    if(has_post_thumbnail()){
-
-  ?>
-
-    <script>console.log("发现缩略图");</script>
-
-    <figure class="thumc"><?php the_post_thumbnail( 'full' ); ?></figure>
-
-  <?php
-
-    }
-
-    else
-
-    {
-
-  ?>
-
-    <script>console.log("未发现缩略图");</script>
-
-  <?php 
-
-    }
-
-  ?>
 
 <?php the_content();?>
 

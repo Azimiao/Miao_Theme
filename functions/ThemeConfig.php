@@ -47,6 +47,9 @@ class ThemeConfig {
     //缩略图本地存放路径
     public static $thumbLocalPath = "/cache/theme-thumbnail";
 
+    //文章页是否显示缩略图
+    public static $isSingleThumb = true;
+
     //七牛key
     public static $qiNiuAK = "";
     public static $qiNiuCK = "";
@@ -372,6 +375,33 @@ function Bing_crop_thumbnail($url, $width, $height = null) {
         return $qiNiuimageUrl == "" ? $imageUrl : $qiNiuimageUrl;
     } else {
         return $imageUrl;
+    }
+}
+
+//输出文章缩略图
+function getSingleThumb()
+{
+    if (ThemeConfig::$isSingleThumb) {
+
+        if(has_post_thumbnail()){
+
+              ?>
+
+                <script>console.log("发现缩略图");</script>
+
+                <figure class="thumc"><?php the_post_thumbnail( 'full' ); ?></figure>
+
+              <?php
+
+        }
+
+        else{ ?>
+
+            <script>console.log("未发现缩略图");</script>
+
+          <?php 
+
+        }
     }
 }
 
