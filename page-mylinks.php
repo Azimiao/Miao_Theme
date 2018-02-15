@@ -87,7 +87,7 @@ url: http://azimiao.com
 
     foreach ($bookmarks as $bookmark) {
 
-      echo '<li><a href="' . $bookmark->link_url . '" title="' . $bookmark->link_description . '" target="_blank" >'. get_avatar($bookmark->link_notes,64) . '<span class="sitename">'. $bookmark->link_name .'</span></a></li>';
+      echo '<li><a href="' . $bookmark->link_url . '" title="' . $bookmark->link_description . '" target="_blank" >'. get_avatar($bookmark->link_notes,128) . '<span class="sitename">'. $bookmark->link_name .'</span></a></li>';
 
     }
 
