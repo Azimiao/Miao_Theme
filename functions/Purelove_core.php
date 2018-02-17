@@ -174,7 +174,7 @@ add_filter('past_date', 'past_date');
 
 
 
-add_theme_support( 'post-formats', array( 'status', 'audio' ) );
+add_theme_support( 'post-formats', array( 'status') );
 
 
 

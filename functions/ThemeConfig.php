@@ -8,10 +8,10 @@ class ThemeConfig {
     //网站域名
     public static $url = "www.azimiao.com";
     //网站副标题
-    public static $subtitle = "Life Can Be Simple !!!";
+    public static $subtitle = "Life Can Be Simple !";
 
     //网站Logo路径
-    public static $logoPicPath = "http://www.azimiao.com/wp-content/themes/purelove/images/logo.png";
+    public static $logoPicPath = "http://www.azimiao.com/wp-content/themes/purelove_theme/images/logo.png";
     //右上图片路径
     public static $adPicPath = "http://www.azimiao.com/wp-content/uploads/2018/01/happy2018.png";
     //网站地图路径
@@ -26,7 +26,7 @@ class ThemeConfig {
     //首页幻灯片路径
     public static $sliderPicPath = array(
         "http://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302",
-        "http://img.xjh.me/random_img.php?type=bg&ctype=acg&return=302"
+        "http://img.xjh.me/random_img.php?type=bg&return=302"
     );
 
     //是否开启登陆保护(开启后，后台登陆地址需要添加get参数与对应值:?ye=tu)
@@ -40,25 +40,31 @@ class ThemeConfig {
 
     //是否开启缩略图裁剪？、否：文章列表将全部显示随机缩略图
     public static $isOpenThumbClip = true;
-    //缩略图是否上传七牛
-    public static $isQiNiuUpLoad = false;
-    //是否返回七牛地址
-    public static $isQiNiuAddr = false;
     //缩略图本地存放路径
     public static $thumbLocalPath = "/cache/theme-thumbnail";
-
-    //文章页是否显示缩略图
+    //文章页是否显示缩略图(开启后，如有缩略图将在文章页顶部显示)
     public static $isSingleThumb = true;
 
-    //七牛key
+    //缩略图是否上传七牛(如是，请填写下的七牛Access Key / Secret key)
+    public static $isQiNiuUpLoad = false;
+    //七牛key(如不开启七牛上传请留空)
     public static $qiNiuAK = "";
     public static $qiNiuCK = "";
-
-    //七牛缩略图存储空间名
+     //七牛缩略图存储空间名
     public static $qiNiuBucketName = "zm-thumbnail-cdn";
 
+    //是否返回七牛地址(如是，请填写下面的外链路径)
+    public static $isQiNiuAddr = false;
     //七牛缩略图外链路径
     public static $thumbQiNiuPath = "http://piccdn.azimiao.com";
+
+    
+
+    
+
+   
+
+    
 
     //七牛随机图片路径与图片前缀（10张，按照文章id截取最后一位做标识符 http://piccdn.azimiao.com/random/tb1.jpg）
     public static $qiNiuRandomPath = "/random/tb";

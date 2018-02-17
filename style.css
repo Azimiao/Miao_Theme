@@ -129,17 +129,24 @@ ol,ul,li {
 
 }
 
+/* 文章ol ul列表 */
 
-
-.thumc {
-
-	width: 100%!important;
-
-	margin: auto 0
-
+#article_content ol,#article_content ul{
+	margin-left: 24px;
 }
 
+#article_content ol,#article_content ol li{
+	list-style: decimal;
+}
 
+#article_content ul,#article_content ul li{
+	list-style: disc;
+}
+
+/* 文章顶部缩略图 */
+.thumc {
+	margin: auto 0;
+}
 
 .thumc img {
 
@@ -164,7 +171,7 @@ img {
 }
 
 
-
+/* 幻灯片 */
 .mySliderBar {
 
 	position: relative;
