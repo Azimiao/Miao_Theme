@@ -10,14 +10,6 @@
 
 <meta charset="UTF-8" />
 
-<link rel="dns-prefetch" href="//pic.azimiao.com">
-
-<link rel="dns-prefetch" href="//piccdn.azimiao.com">
-
-<link rel="dns-prefetch" href="//js.azimiao.com">
-
-<link rel="dns-prefetch" href="//hm.baidu.com">
-
 <link rel="dns-prefetch" href="https://cdn.v2ex.com">
 
 <meta name = "viewport" content ="initial-scale=1.0,user-scalable=no">

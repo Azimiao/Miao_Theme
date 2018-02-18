@@ -17,8 +17,11 @@ class ThemeConfig {
     //网站地图路径
     public static $siteMapPath = "http://www.azimiao.com/sitemap.html";
 
-    //我的描述
-    public static $aboutMe = "<p>·野兔，男，天秤座。<span class='myinfo_pic'><a href='http://music.163.com/#/user/home?id=42209280' target='_blank'><span class='miao miao-headphones miao-fw miao-link' title='网易云音乐'></span></a><a href='http://steamcommunity.com/id/yetui' target='_blank'><span class='miao miao-steam miao-fw miao-link' title='Steam'></span></a><a href='http://sighttp.qq.com/authd?IDKEY=5929de917711dbd2c7605f448208620a72f5a7a4af81f532' target='_blank'><span class='miao miao-qq miao-fw miao-link' title='腾讯QQ'></span></a><a href='mailto:admin@azimiao.com'><span class='miao miao-mail-alt miao-fw miao-link' title='发送邮件'></span></a><span class='miao miao-guidedog miao-fw miao-link' title='占位置'></span></span></p><p>·轻微中二病患者，白学学者与棒棒伲购美病研究人员。</p><p>·泡茶，曲奇，散步，野游，微醉。</p><p>·摄影门外汉，北漂酷码农。</p><p>·梓喵出没名称的由来：<a href='//www.azimiao.com/li-shi-de-jin-cheng#miaosource'>梓喵出没编年史</a></p>";
+    //版权声明
+    public static $copyRightText = "1.您可自由分发和演绎本站内容，只需保留本站署名且非商业使用(CC BY-NC-SA 3.0 CN)。<br/>
+            2.本站引用资源会尽最大可能标明出处及著作权所有者，但不能保证对所有资源都可声明上述内容。侵权请联络admin|AT|azimiao.com。<br/>";
+    //我的介绍
+    public static $aboutMe = "<p>·野兔，男，天秤座。<span class='myinfo_pic'><a href='http://music.163.com/#/user/home?id=42209280' target='_blank'><span class='miao miao-headphones miao-fw miao-link' title='网易云音乐'></span></a><a href='http://steamcommunity.com/id/yetui' target='_blank'><span class='miao miao-steam miao-fw miao-link' title='Steam'></span></a><a href='http://sighttp.qq.com/authd?IDKEY=5929de917711dbd2c7605f448208620a72f5a7a4af81f532' target='_blank'><span class='miao miao-qq miao-fw miao-link' title='腾讯QQ'></span></a><a href='mailto:admin@azimiao.com'><span class='miao miao-mail-alt miao-fw miao-link' title='发送邮件'></span></a><span class='miao miao-guidedog miao-fw miao-link' title='占位置'></span></span></p><p>·轻微中二病患者，白学学者与棒棒伲购美病研究人员。</p><p>·泡茶，曲奇，散步，野游，微醉。</p><p>·摄影门外汉，北漂酷码农。</p><p>·梓喵出没名称的由来：<a href='//www.azimiao.com/li-shi-de-jin-cheng'>梓喵出没编年史</a></p>";
 
 
     //是否开启首页幻灯片
@@ -40,7 +43,7 @@ class ThemeConfig {
 
     //是否开启缩略图裁剪？、否：文章列表将全部显示随机缩略图
     public static $isOpenThumbClip = true;
-    //缩略图本地存放路径
+    //缩略图本地存放路径(一般不需要修改)
     public static $thumbLocalPath = "/cache/theme-thumbnail";
     //文章页是否显示缩略图(开启后，如有缩略图将在文章页顶部显示)
     public static $isSingleThumb = true;
@@ -57,17 +60,9 @@ class ThemeConfig {
     public static $isQiNiuAddr = false;
     //七牛缩略图外链路径
     public static $thumbQiNiuPath = "http://piccdn.azimiao.com";
-
-    
-
-    
-
-   
-
-    
-
     //七牛随机图片路径与图片前缀（10张，按照文章id截取最后一位做标识符 http://piccdn.azimiao.com/random/tb1.jpg）
     public static $qiNiuRandomPath = "/random/tb";
+    
     /* 缩略图七牛配置End */
 
 
@@ -127,7 +122,8 @@ add_action('do_feed_rdf', 'disable_our_feeds', 1);
 add_action('do_feed_rss', 'disable_our_feeds', 1);
 add_action('do_feed_rss2', 'disable_our_feeds', 1);
 add_action('do_feed_atom', 'disable_our_feeds', 1);*/
-
+//编辑器实时预览
+//add_action( 'init', 'dmeng_theme_add_editor_styles' );
 
 //摘要字数
 function theExcerpt_Length($length) {
@@ -189,6 +185,12 @@ function get_ssl_avatar($avatar) {
     ) , "//cdn.v2ex.com/gr", $avatar);
     return $avatar;
 }
+
+//编辑器实时预览
+function dmeng_theme_add_editor_styles() {
+add_editor_style('style.css');
+}
+
 /*-----------------------------------优化End--------------------------------------------*/
 /*------------------------------------功能--------------------------------------------*/
 //黑幕效果

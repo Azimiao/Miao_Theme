@@ -65,8 +65,18 @@ article.posts p {
 
 #article_content blockquote p {
 
-	margin: 0!important
+	margin: 0 !important
 
+}
+
+#article_content details summary:focus{
+	outline: none;
+	cursor: pointer;
+}
+
+#article_content details p{
+	font-size: 15px;
+	line-height: 1.1;
 }
 
 
@@ -4678,7 +4688,13 @@ span.kcomtime {
 
 .aside-entry {
 
-	padding: 12px 30px;
+	display:flex;/*Flex布局*/
+
+    	display: -webkit-flex; /* Safari */
+
+    	align-items:center;/*指定垂直居中*/
+
+	padding: 12px 24px;
 
 	color: #666;
 
@@ -4717,7 +4733,6 @@ span.kcomtime {
 }
 
 
-
 .aside-pointer {
 
 	display: block;
@@ -4736,17 +4751,15 @@ span.kcomtime {
 
 .aside-entry p {
 
-	margin-top: -8px;
-
 	border-radius: 3px 3px 3px 3px;
 
 	color: #606060;
 
-	font-size: 13px;
+	font-size: 14px;
 
-	line-height: 1.7;
+	line-height: 1.5;
 
-	margin-left: 83px
+	margin-left: 80px
 
 }
 
@@ -5252,7 +5265,7 @@ ul.friendlinks li {
 
 #cboxOverlay {
 
-	background: url(//www.azimiao.com/wp-content/themes/purelove/colorbox/images/overlay.png) repeat 0 0
+	background: url(colorbox/images/overlay.png) repeat 0 0
 
 }
 
