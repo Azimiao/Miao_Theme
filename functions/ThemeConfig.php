@@ -6,16 +6,16 @@
 class ThemeConfig {
 
     //网站域名
-    public static $url = "www.azimiao.com";
+    public static $url = "localhost.azimiao.com";
     //网站副标题
     public static $subtitle = "Life Can Be Simple !";
 
     //网站Logo路径
-    public static $logoPicPath = "http://www.azimiao.com/wp-content/themes/purelove_theme/images/logo.png";
+    public static $logoPicPath = "//localhost.azimiao.com/wp-content/themes/purelove_theme/images/logo.png";
     //右上图片路径
-    public static $adPicPath = "http://www.azimiao.com/wp-content/uploads/2018/01/happy2018.png";
+    public static $adPicPath = "//localhost.azimiao.com/wp-content/themes/purelove_theme/images/happy2018.png";
     //网站地图路径
-    public static $siteMapPath = "http://www.azimiao.com/sitemap.html";
+    public static $siteMapPath = "//www.azimiao.com/sitemap.html";
 
     //版权声明
     public static $copyRightText = "1.您可自由分发和演绎本站内容，只需保留本站署名且非商业使用(CC BY-NC-SA 3.0 CN)。<br/>
@@ -28,8 +28,8 @@ class ThemeConfig {
     public static $isIndexSlider = true;
     //首页幻灯片路径
     public static $sliderPicPath = array(
-        "http://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302",
-        "http://img.xjh.me/random_img.php?type=bg&return=302"
+        "//img.xjh.me/random_img.php?type=bg&ctype=nature&return=302",
+        "//img.xjh.me/random_img.php?type=bg&return=302"
     );
 
     //是否开启登陆保护(开启后，后台登陆地址需要添加get参数与对应值:?ye=tu)
@@ -59,8 +59,8 @@ class ThemeConfig {
     //是否返回七牛地址(如是，请填写下面的外链路径)
     public static $isQiNiuAddr = false;
     //七牛缩略图外链路径
-    public static $thumbQiNiuPath = "http://piccdn.azimiao.com";
-    //七牛随机图片路径与图片前缀（10张，按照文章id截取最后一位做标识符 http://piccdn.azimiao.com/random/tb1.jpg）
+    public static $thumbQiNiuPath = "//piccdn.azimiao.com";
+    //七牛随机图片路径与图片前缀（10张，按照文章id截取最后一位做标识符 //piccdn.azimiao.com/random/tb1.jpg）
     public static $qiNiuRandomPath = "/random/tb";
     
     /* 缩略图七牛配置End */
