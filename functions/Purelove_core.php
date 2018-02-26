@@ -1138,7 +1138,7 @@ function set_post_views () {
 
 
 
-add_action('get_header', 'set_post_views'); 
+//add_action('get_header', 'set_post_views'); 
 
 
 

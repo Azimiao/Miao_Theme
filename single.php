@@ -20,7 +20,7 @@
 
 <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" class="fn"><?php the_author(); ?></span></span> /
 
-<span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span itemprop="ratingCount"><?php get_post_views($post -> ID); ?></span> 人阅读 
+<span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span id ="viewsNum" itemprop="ratingCount">...</span>人阅读
 
 <span class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">位置：<a href="<?php echo get_option('home'); ?>/">首页</a> &raquo; <?php the_category(', ') ?> &raquo; <a href="<?php the_permalink() ?>" rel="bookmark" itemprop="url">本页</a></span>
 
@@ -124,6 +124,23 @@ else {
 </div>
 
 <?php comments_template( '', true ); ?>   
+
+<script type="text/javascript"> 
+  jQuery(document).ready(function($)
+  {   
+    $.ajax(
+    {  
+      type: "GET",  
+      url: '<?php echo admin_url('admin-ajax.php') ?>',  
+      data: {action:"SetVisitors",post_id:"<?php echo($post->ID) ?>"},  
+      dataType: "json",  
+      success: function(data)
+      {  
+        $("#viewsNum").html(data);  
+      }  
+    })  
+  })  
+  </script> 
 
 </article>
 

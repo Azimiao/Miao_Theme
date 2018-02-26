@@ -65,6 +65,7 @@ class ThemeConfig {
     
     /* 缩略图七牛配置End */
 
+    public static $views_meta_name = "views"; 
 
 
     public static function GetSubtitle($echo = true) {
@@ -429,5 +430,67 @@ function deny_mirrored_request()
         }
     }
 }
+
+//获取浏览计数
+    function GetVisitors()
+    {
+        $post_ID = $_GET["post_id"];
+
+        if($post_ID != "")
+        {
+            $post_views = (int)get_post_meta($post_ID,ThemeConfig::$views_meta_name,true);
+            if($post_views == "")
+            {
+                //删除错误字段
+                delete_post_meta($post_ID,ThemeConfig::$views_meta_name);
+                //重新添加字段
+                add_post_meta($post_ID,ThemeConfig::$views_meta_name,1,true);
+            }
+            echo json_encode($post_views);
+        }
+        else
+        {
+            echo json_encode(0);
+        }
+        //退出当前脚本
+        die();
+    }
+    
+    //绑定
+    add_action("wp_ajax_nopriv_GetVisitors","GetVisitors");
+    add_action("wp_ajax_GetVisitors","GetVisitors");
+
+    //增加并返回浏览计数
+    function SetVisitors()
+    {
+        $post_ID = $_GET["post_id"];
+
+        if($post_ID != "")
+        {
+            $post_views = (int)get_post_meta($post_ID,ThemeConfig::$views_meta_name,true);
+            //计数+1
+            if(!update_post_meta($post_ID,ThemeConfig::$views_meta_name,$post_views + 1))
+            {
+                //删除错误字段
+                delete_post_meta($post_ID,ThemeConfig::$views_meta_name);
+                //重新添加字段
+                add_post_meta($post_ID,ThemeConfig::$views_meta_name,1,true);
+            }
+            //返回增加后的计数
+            echo json_encode($post_views+1);
+        }
+        else
+        {
+            echo json_encode(0);
+        }
+
+        //退出当前脚本
+        die();
+    }
+    
+    add_action("wp_ajax_nopriv_SetVisitors","SetVisitors");
+    add_action("wp_ajax_SetVisitors","SetVisitors");
+
+
 /*-----------------------------------功能End--------------------------------------------*/
 
