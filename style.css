@@ -143,6 +143,7 @@ ol,ul,li {
 
 #article_content ol,#article_content ul{
 	margin-left: 24px;
+	margin-bottom:16px;
 }
 
 #article_content ol,#article_content ol li{

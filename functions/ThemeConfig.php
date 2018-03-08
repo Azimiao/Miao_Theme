@@ -44,7 +44,7 @@ class ThemeConfig {
     //是否开启缩略图裁剪？、否：文章列表将全部显示随机缩略图
     public static $isOpenThumbClip = true;
     //缩略图本地存放路径(一般不需要修改)
-    public static $thumbLocalPath = "/cache/theme-thumbnail";
+    public static $thumbLocalPath = "/Purelove_ThumPic/theme-thumbnail";
     //文章页是否显示缩略图(开启后，如有缩略图将在文章页顶部显示)
     public static $isSingleThumb = true;
 
@@ -199,8 +199,7 @@ add_shortcode('heimu', 'heimu_style');
 add_action('admin_print_footer_scripts', 'heimu_tag');
 //说说
 add_action('init', 'my_custom_init');
-//防止恶意HTTP_USER_AGENT采集
-add_action('wp_head', 'deny_mirrored_request', 0);
+
 // 注册缩略图存储路径
 if (!defined('THEME_THUMBNAIL_PATH')) define('THEME_THUMBNAIL_PATH', ThemeConfig::$thumbLocalPath);
 //注册缩略图外链路径
@@ -345,7 +344,7 @@ function UpLoadPic($picname, $picpath) {
     //上传
     $str = $inputer->UpLoadFile($picname, $picpath, ThemeConfig::$qiNiuBucketName);
     //返回图片url
-    return THEME_QINIU_THUMB_PATH . "/" . $str[1];
+    return THEME_QINIU_THUMB_PATH . "/" . $picname;
 }
 //裁剪缩略图 by 宾果(www.bgbk.org)
 function Bing_crop_thumbnail($url, $width, $height = null) {
@@ -353,7 +352,7 @@ function Bing_crop_thumbnail($url, $width, $height = null) {
     $width = (int)$width;
     $height = empty($height) ? $width : (int)$height;
     $hash = md5($url);
-    $file_path = WP_CONTENT_DIR . THEME_THUMBNAIL_PATH . "/{$hash}-{$width}-{$height}.jpg";
+    $file_path = "./wp-content" . THEME_THUMBNAIL_PATH . "/{$hash}-{$width}-{$height}.jpg";
     $file_url = content_url(THEME_THUMBNAIL_PATH . "/{$hash}-{$width}-{$height}.jpg");
     if (is_file($file_path)) {
         if (ThemeConfig::$isQiNiuAddr) {
@@ -362,7 +361,10 @@ function Bing_crop_thumbnail($url, $width, $height = null) {
             return $file_url;
         }
     }
-    $editor = wp_get_image_editor($url);
+
+    $localPicUrl = $_SERVER['DOCUMENT_ROOT'] . str_replace(home_url(),"",$url);
+    $editor = wp_get_image_editor($localPicUrl);
+
     if (is_wp_error($editor)) {
         return $url;
     }
@@ -414,22 +416,8 @@ function getSingleThumb()
     }
 }
 
-//防止恶意HTTP_USER_AGENT采集
-function deny_mirrored_request()
-{
-    $ua = $_SERVER['HTTP_USER_AGENT'];
-    $now_ua = array('FeedDemon ','BOT/0.1 (BOT for JCE)','CrawlDaddy ','Java','Feedly','UniversalFeedParser','ApacheBench','Swiftbot','ZmEu','Indy Library','oBot','jaunty','YandexBot','AhrefsBot','MJ12bot','WinHttp','EasouSpider','HttpClient','Microsoft URL Control','YYSpider','jaunty','Python-urllib','lightDeckReports Bot','PHP'); 
-    if(!$ua) {
-    header("Content-type: text/html; charset=utf-8");
-    wp_die('嗯？');
-    }else{
-        foreach($now_ua as $value )
-        if(eregi($value,$ua)) {
-        header("Content-type: text/html; charset=utf-8");
-        wp_die('嗯？');
-        }
-    }
-}
+
+
 
 //获取浏览计数
     function GetVisitors()

@@ -96,13 +96,13 @@ class FileUpLoadToQN
 
 			{
 
-				var_dump($ret);
+				//var_dump($ret);
 
 			}
 
 
 
-			return $err;
+			return $ret;
 
 		}
 

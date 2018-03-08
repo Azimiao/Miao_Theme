@@ -180,117 +180,20 @@ if (have_posts()):
 
 
 
-<!-- 	<?php if (post_thumbnail(140,100)): ?>
-
-
-
-		
-
-
-
-	<?php endif ?> -->
-
-
-
-
-
-
-
 	<div class="thumbnail">
 
 
 
-		 <a href="<?php
+		 <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" target="_blank">
 
-
-
-            the_permalink() ?>" title="<?php
-
-
-
-            the_title(); ?>" target="_blank">
-
-
-
-			<?php
-
-
-
-             
-
-
-
-            if (post_thumbnail(140,100))
-
-
-
-            {
-
-
-
-                $image = post_thumbnail(140,100);
-
-
-
-	        	?>
-
-
-
-	            <img src="<?php echo $image ?> " alt="<?php the_title(); ?>" >
-
-
-
-            	<?php       
-
-
-
-            }
-
-
-
-            else 
-
-
-
-            { ?>
-
-
-
-					 <img src="<?php echo Purelove_thumbnail() ?>" alt="<?php the_title(); ?>" width="140" height="100" />
-
-
-
-				<?php
-
-
-
-            }
-
-
-
-            	?>
-
-
+	            <img src="<?php echo post_thumbnail(140,100); ?> " alt="<?php the_title(); ?>" >
 
 		  </a>
 
 
-
 	</div>
 
-
-
-
-
-
-
 <!-- picFinished -->
-
-
-
-
-
-
 
 </div>
 
