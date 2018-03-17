@@ -2840,7 +2840,19 @@ span.kcomtime {
 
 }
 
+.coms_main p img{
+	display: block;
+	margin-top: .5em;
+	margin-top: .5em;
+	max-width: 90%;
+}
 
+.coms_main p img.wp-smiley{
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: -3px;
+
+}
 
 .coms_meta {
 
