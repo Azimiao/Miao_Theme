@@ -169,7 +169,7 @@ zi_welcome.getWhereYouAre = function(allSiteData){
     			if(document.referrer.indexOf(allSiteData[i][0]) != -1)
     			{
     				console.log(document.referrer);
-    				return "来自"+ theWeb[i][1];
+    				return "来自"+ allSiteData[i][1];
     			}
     		}
     	return "未知网站";

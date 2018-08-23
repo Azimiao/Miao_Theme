@@ -29,12 +29,11 @@
 <link rel="canonical" href="<?php the_permalink(); ?>" />
 
 <?php } ?>
-
-<link rel="stylesheet" href="<?php  echo get_template_directory_uri(); ?>/style.css">
-
-<script src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
-
 <link rel="icon" href="<?php  echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="<?php  echo get_template_directory_uri(); ?>/style.css">
+<script src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php  echo get_template_directory_uri(); ?>/css/notify2.css" />
+
 
 <?php wp_head(); ?>
 
