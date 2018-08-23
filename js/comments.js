@@ -118,6 +118,10 @@ jQuery(document).ready(function($) {
 			error: function(request) {
 				$('#loading').slideUp();
 				$('#error').slideDown().html(request.responseText);
+//ADD
+				var tempData = {title:"评论",content:request.responseText};
+				zi_notify.showNotify(zi_notify.ENotifyType.warning,tempData);
+//END ADD
 				setTimeout(function() {
 					$submit.attr('disabled', false).fadeTo('slow', 1);
 					$('#error').slideUp()
@@ -152,6 +156,10 @@ jQuery(document).ready(function($) {
 				$('#new_comm_' + num).hide().append(data);
 				$('#new_comm_' + num + ' li').append(ok_htm);
 				$('#new_comm_' + num).fadeIn(4000);
+//ADD
+				var tempData = {title:"评论",content:"评论提交成功！"};
+				zi_notify.showNotify(zi_notify.ENotifyType.main,tempData);
+//END ADD
 				$body.animate({
 					scrollTop: $('#new_comm_' + num).offset().top - 200
 				},
