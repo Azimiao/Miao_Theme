@@ -116,8 +116,15 @@ jQuery(document).ready(function($) {
 			data: $(this).serialize(),
 			type: $(this).attr('method'),
 			error: function(request) {
+				var resContent;
+				if(request.status != 405){
+					var errInfo = new DOMParser().parseFromString(request.responseText, "text/html").querySelector("p");
+					resContent = errInfo.innerText;
+				}else{
+					resContent = request.responseText;
+				}
 				$('#loading').slideUp();
-				$('#error').slideDown().html(request.responseText);
+				$('#error').slideDown().html(request.resContent);
 				setTimeout(function() {
 					$submit.attr('disabled', false).fadeTo('slow', 1);
 					$('#error').slideUp()
