@@ -118,7 +118,6 @@ jQuery(document).ready(function ($) {
 			error: function (request) {
 				//ADD
 				var tempData = { title: "⚠错误！", content: "" };
-
 				//END ADD
 				$('#loading').slideUp();
 				if (request.status != 405) {
