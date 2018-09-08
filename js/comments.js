@@ -1,5 +1,3 @@
-jQuery.noConflict();
-
 var i = 0,
 	got = -1,
 	len = document.getElementsByTagName('script').length;
@@ -22,36 +20,39 @@ var edit_mode = '1',
 	comm_array = [];
 comm_array.push('');
 
-jQuery(document).ready(function ($) {
 
-	$('.commentlist dt .url').attr('target', '_blank');
-	$('#comment-author-info p input').focus(function () {
-		$(this).parent('p').addClass('on')
+
+
+function CommentInit(){
+
+	jQuery('.commentlist dt .url').attr('target', '_blank');
+	jQuery('#comment-author-info p input').focus(function () {
+		jQuery(this).parent('p').addClass('on')
 	});
-	$('#comment-author-info p input').blur(function () {
-		$(this).parent('p').removeClass('on')
+	jQuery('#comment-author-info p input').blur(function () {
+		jQuery(this).parent('p').removeClass('on')
 	});
 
-	$('#tab-author').click(function () {
-		$('#author-info').hide();
-		$('#comment-author-info').show();
-		$('#author').focus();
+	jQuery('#tab-author').click(function () {
+		jQuery('#author-info').hide();
+		jQuery('#comment-author-info').show();
+		jQuery('#author').focus();
 
 	})
 
-	$('#comment').focus(function () {
-		$('.post-area').addClass('post-area-hover');
+	jQuery('#comment').focus(function () {
+		jQuery('.post-area').addClass('post-area-hover');
 	})
-	$('#comment').blur(function () {
-		$('.post-area').removeClass('post-area-hover');
-	})
-
-	$('#comment-smiley').click(function () {
-		$('#smileys').toggle();
+	jQuery('#comment').blur(function () {
+		jQuery('.post-area').removeClass('post-area-hover');
 	})
 
-	$('#smileys a').click(function () {
-		$(this).parent().hide();
+	jQuery('#comment-smiley').click(function () {
+		jQuery('#smileys').toggle();
+	})
+
+	jQuery('#smileys a').click(function () {
+		jQuery(this).parent().hide();
 	})
 
 	function addEditor(a, b, c) {
@@ -81,15 +82,15 @@ jQuery(document).ready(function ($) {
 	var h = {
 		daka: function () {
 			addEditor(g, '<blockquote>签到成功！签到时间：' + mytime, '，每日打卡，生活更精彩哦~</blockquote>')
-			$('.comment-editor').hide();
+			jQuery('.comment-editor').hide();
 		},
 		good: function () {
 			addEditor(g, '<blockquote> :grin:  :grin: 好羞射，文章真的好赞啊，顶博主！', '</blockquote>')
-			$('.comment-editor').hide();
+			jQuery('.comment-editor').hide();
 		},
 		bad: function () {
 			addEditor(g, '<blockquote> :twisted:  :twisted: 有点看不懂哦，希望下次写的简单易懂一点！', '</blockquote>')
-			$('.comment-editor').hide();
+			jQuery('.comment-editor').hide();
 		},
 		pre: function () {
 			addEditor(g, '<pre>', '</pre>')
@@ -98,28 +99,28 @@ jQuery(document).ready(function ($) {
 	window['SIMPALED'] = {};
 	window['SIMPALED']['Editor'] = h
 
-	$comments = $('#comments-title');
-	$cancel = $('#cancel-comment-reply-link');
+	$comments = jQuery('#comments-title');
+	$cancel = jQuery('#cancel-comment-reply-link');
 	cancel_text = $cancel.text();
-	$submit = $('#commentform #submit');
+	$submit = jQuery('#commentform #submit');
 	$submit.attr('disabled', false);
-	$('#comment').after(txt1 + txt2);
-	$('#loading').hide();
-	$('#error').hide();
-	$body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
-	$('#commentform').submit(function () {
-		$('#loading').slideDown();
+	jQuery('#comment').after(txt1 + txt2);
+	jQuery('#loading').hide();
+	jQuery('#error').hide();
+	$body = (window.opera) ? (document.compatMode == "CSS1Compat" ? jQuery('html') : jQuery('body')) : jQuery('html,body');
+	jQuery('#commentform').submit(function () {
+		jQuery('#loading').slideDown();
 		$submit.attr('disabled', true).fadeTo('slow', 0.5);
-		if (edit) $('#comment').after('<input type="text" name="edit_id" id="edit_id" value="' + edit + '" style="display:none;" />');
-		$.ajax({
+		if (edit) jQuery('#comment').after('<input type="text" name="edit_id" id="edit_id" value="' + edit + '" style="display:none;" />');
+		jQuery.ajax({
 			url: ajax_php_url,
-			data: $(this).serialize(),
-			type: $(this).attr('method'),
+			data: jQuery(this).serialize(),
+			type: jQuery(this).attr('method'),
 			error: function (request) {
 				//ADD
 				var tempData = { title: "⚠错误！", content: "" };
 				//END ADD
-				$('#loading').slideUp();
+				jQuery('#loading').slideUp();
 				if (request.status != 405) {
 					var errInfo = new DOMParser().parseFromString(request.responseText, "text/html").querySelector("p");
 					tempData.content = errInfo.innerText;
@@ -127,17 +128,17 @@ jQuery(document).ready(function ($) {
 					tempData.content = request.responseText;
 				}
 				zi_notify.showNotify(zi_notify.ENotifyType.warning, tempData);
-				$('#error').slideDown().html(tempData.content);
+				jQuery('#error').slideDown().html(tempData.content);
 				setTimeout(function () {
 					$submit.attr('disabled', false).fadeTo('slow', 1);
-					$('#error').slideUp()
+					jQuery('#error').slideUp()
 				},
 					3000)
 			},
 			success: function (data) {
-				$('#loading').hide();
-				comm_array.push($('#comment').val());
-				$('textarea').each(function () {
+				jQuery('#loading').hide();
+				comm_array.push(jQuery('#comment').val());
+				jQuery('textarea').each(function () {
 					this.value = ''
 				});
 				var t = addComment,
@@ -158,22 +159,22 @@ jQuery(document).ready(function ($) {
 					ok_htm = ok_htm.concat(edt1, div_, 'comment-', parent, '", "', parent, '", "respond", "', post, '", ', num, edt2)
 				}
 				ok_htm += '</span><span></span>\n';
-				$('#respond').before(new_htm);
-				$('#new_comm_' + num).hide().append(data);
-				$('#new_comm_' + num + ' li').append(ok_htm);
-				$('#new_comm_' + num).fadeIn(4000);
+				jQuery('#respond').before(new_htm);
+				jQuery('#new_comm_' + num).hide().append(data);
+				jQuery('#new_comm_' + num + ' li').append(ok_htm);
+				jQuery('#new_comm_' + num).fadeIn(4000);
 				//ADD
 				var tempData = { title: "㊗恭喜", content: "评论提交成功！" };
 				zi_notify.showNotify(zi_notify.ENotifyType.nomal, tempData);
 				//END ADD
 				$body.animate({
-					scrollTop: $('#new_comm_' + num).offset().top - 200
+					scrollTop: jQuery('#new_comm_' + num).offset().top - 200
 				},
 					900);
 				countdown();
 				num++;
 				edit = '';
-				$('*').remove('#edit_id');
+				jQuery('*').remove('#edit_id');
 				cancel.style.display = 'none';
 				cancel.onclick = null;
 				t.I('comment_parent').value = '0';
@@ -194,7 +195,7 @@ jQuery(document).ready(function ($) {
 				parent = t.I('comment_parent'),
 				post = t.I('comment_post_ID');
 			if (edit) exit_prev_edit();
-			num ? (t.I('comment').value = comm_array[num], edit = t.I('new_comm_' + num).innerHTML.match(/(comment-)(\d+)/)[2], $new_sucs = $('#success_' + num), $new_sucs.hide(), $new_comm = $('#new_comm_' + num), $new_comm.hide(), $cancel.text(cancel_edit)) : $cancel.text(cancel_text);
+			num ? (t.I('comment').value = comm_array[num], edit = t.I('new_comm_' + num).innerHTML.match(/(comment-)(\d+)/)[2], $new_sucs = jQuery('#success_' + num), $new_sucs.hide(), $new_comm = jQuery('#new_comm_' + num), $new_comm.hide(), $cancel.text(cancel_edit)) : $cancel.text(cancel_text);
 			t.respondId = respondId;
 			postId = postId || false;
 			if (!t.I('wp-temp-form-div')) {
@@ -204,7 +205,7 @@ jQuery(document).ready(function ($) {
 				respond.parentNode.insertBefore(div, respond)
 			} !comm ? (temp = t.I('wp-temp-form-div'), t.I('comment_parent').value = '0', temp.parentNode.insertBefore(respond, temp), temp.parentNode.removeChild(temp)) : comm.parentNode.insertBefore(respond, comm.nextSibling);
 			$body.animate({
-				scrollTop: $('#respond').offset().top - 180
+				scrollTop: jQuery('#respond').offset().top - 180
 			},
 				400);
 			if (post && postId) post.value = postId;
@@ -236,7 +237,7 @@ jQuery(document).ready(function ($) {
 	function exit_prev_edit() {
 		$new_comm.show();
 		$new_sucs.show();
-		$('textarea').each(function () {
+		jQuery('textarea').each(function () {
 			this.value = ''
 		});
 		edit = ''
@@ -255,14 +256,15 @@ jQuery(document).ready(function ($) {
 	}
 
 	function isie6() {
-		if ($.browser.msie) {
-			if ($.browser.version == "6.0") return true;
+		if (jQuery.browser.msie) {
+			if (jQuery.browser.version == "6.0") return true;
 		}
 		return false;
 	}
 
-	$body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body'); $('.pagenav a').live('click', function (e) { e.preventDefault(); $.ajax({ type: "GET", url: $(this).attr('href'), beforeSend: function () { $('.pagenav').remove(); $('.commentlist').remove(); $('#loading-comments').slideDown(); }, dataType: "html", success: function (out) { result = $(out).find('.commentlist'); nextlink = $(out).find('.pagenav'); $('#loading-comments').slideUp(500); $('#loading-comments').after(result.fadeIn(800)); $('.commentlist').after(nextlink); } }); })
-});
+	$body = (window.opera) ? (document.compatMode == "CSS1Compat" ? jQuery('html') : jQuery('body')) : jQuery('html,body'); jQuery('.pagenav').on('click', "a" ,function (e) { e.preventDefault(); jQuery.ajax({ type: "GET", url: jQuery(this).attr('href'), beforeSend: function () { jQuery('.pagenav').remove(); jQuery('.commentlist').remove(); jQuery('#loading-comments').slideDown(); }, dataType: "html", success: function (out) { result = jQuery(out).find('.commentlist'); nextlink = jQuery(out).find('.pagenav'); jQuery('#loading-comments').slideUp(500); jQuery('#loading-comments').after(result.fadeIn(800)); jQuery('.commentlist').after(nextlink); } }); })
+}
+
 
 function grin(tag) {
 	tag = ' ' + tag + ' ';
@@ -273,3 +275,7 @@ function insertTag(tag) {
 	myField = document.getElementById('comment');
 	myField.selectionStart || myField.selectionStart == '0' ? (startPos = myField.selectionStart, endPos = myField.selectionEnd, cursorPos = startPos, myField.value = myField.value.substring(0, startPos) + tag + myField.value.substring(endPos, myField.value.length), cursorPos += tag.length, myField.focus(), myField.selectionStart = cursorPos, myField.selectionEnd = cursorPos) : (myField.value += tag, myField.focus())
 }
+
+jQuery(document).ready(function () {
+	CommentInit();
+});

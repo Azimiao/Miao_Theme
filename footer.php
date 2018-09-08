@@ -1,4 +1,5 @@
 </section>
+</div>
 <span class="clearfix"></span>
 <div id="bak_top"></div>
 </div>

@@ -3,13 +3,6 @@
 
 
 
-
-
-
-
-
-
-
 if (have_posts()):
 
 
@@ -132,25 +125,8 @@ if (have_posts()):
 
 
 
-	<span id= "viewsNum-<?php the_ID();  ?>" itemprop="ratingCount">...</span>人阅读 
+	<span name="viewsNum" id= "viewsNum-<?php the_ID();  ?>" itemprop="ratingCount">...</span>人阅读 
         
-        <script>
-        jQuery(document).ready(function($)
-        {
-            $.ajax(
-            {
-                type:"GET",
-                url:"<?php echo admin_url('admin-ajax.php') ?>",
-                data:{action:"GetVisitors",post_id:"<?php the_ID(); ?>"},
-                dataType:"json",
-                success:function(data){
-                    $("#viewsNum-<?php the_ID() ?>").html(data);
-                }
-            })
-        })
-    </script>
-
-
 
 	</span>
 

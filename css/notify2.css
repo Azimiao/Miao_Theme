@@ -4,11 +4,11 @@
     padding: 0;
     align-items: flex-start;
     flex-direction: column-reverse;
-    width: 30vw;
+    width: 100vw;
     z-index: 11;
     pointer-events: none;
     transition: all 0.5s;
-    height: 84vh;
+    height: 90vh;
     left: 0vw;
   }
   .notify-container .notify {
