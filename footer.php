@@ -91,6 +91,7 @@ eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/
 <script>
 	zi_welcome.checkCookie();
 </script>
+<script src="http://localhost.azimiao.com/wp-content/themes/PureLove/js/responsiveslides.min.js"></script>
 <!-- 消息框End -->
 
 

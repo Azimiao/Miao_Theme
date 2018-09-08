@@ -202,6 +202,8 @@ function ajaxreload_code() {
     } catch (error) {
         console.log(error);
     }
+
+    SliderInit();
     
       
 }

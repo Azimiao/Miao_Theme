@@ -69,3 +69,27 @@ window.onscroll=function(){
      document.documentElement.scrollTop+document.body.scrollTop>100?document.getElementById("bak_top").style.display="block":
      document.getElementById("bak_top").style.display="none";
 }
+
+
+function SliderInit(){
+    if(!jQuery("#slider")){
+        return;
+    }
+    console.log("SliderInit");
+    jQuery("#slider").responsiveSlides({
+        auto:true,
+        pager:false,
+        nav:true,
+        speed:500,
+        pauseControls:true,
+        pager:true,
+        manualControls:"auto",
+        namespace:"slide"
+        });
+    //幻灯片导航
+    jQuery(".mySliderBar").hover(function(){$(".slide_nav").fadeIn(200)},function(){$(".slide_nav").fadeOut(200)});
+}
+jQuery(document).ready(function($){
+    //幻灯片
+    SliderInit();
+});

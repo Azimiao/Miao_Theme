@@ -224,6 +224,7 @@ function MyIndexSlider() {
     if (!ThemeConfig::$isIndexSlider) {
         return;
     }
+    /* 
     if (is_home() || is_front_page()) { ?>
 		<script src="<?php
         echo get_template_directory_uri() ?>/js/responsiveslides.min.js"></script>
@@ -243,7 +244,9 @@ function MyIndexSlider() {
 			//幻灯片导航
 			$(".mySliderBar").hover(function(){$(".slide_nav").fadeIn(200)},function(){$(".slide_nav").fadeOut(200)});
 		});
-		</script>
+        </script>
+        */
+        ?>
 		<div class="mySliderBar">
 		<ul class="rslides" id="slider">
 		<?php
@@ -255,7 +258,7 @@ function MyIndexSlider() {
 		</ul>
 		</div>
 	<?php
-    }
+    //}
 }
 //删除文章修订版本
 /*
