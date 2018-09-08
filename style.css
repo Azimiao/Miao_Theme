@@ -1158,25 +1158,9 @@ a:hover {
 
 	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 
-	background-color: #f9f9f9;
-
-	background-image: -ms-linear-gradient(top,#fcfcfc,#e9e9e9);
-
-	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fcfcfc),to(#e9e9e9));
-
-	background-image: -webkit-linear-gradient(top,#fcfcfc,#e9e9e9);
-
-	background-image: -o-linear-gradient(top,#fcfcfc,#e9e9e9);
-
-	background-image: -moz-linear-gradient(top,#fcfcfc,#e9e9e9);
-
-	background-image: linear-gradient(top,#fcfcfc,#e9e9e9);
+	/*background-color: #f9f9f9;*/
 
 	background-repeat: repeat-x;
-
-	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fcfcfc',endColorstr='#e9e9e9',GradientType=0);
-
-	filter: progid:dximagetransform.microsoft.gradient(enabled=false)
 
 }
 
@@ -1220,13 +1204,7 @@ a:hover {
 
 
 
-#menus li.current_page_item a,#menus li.current-menu-item a,#menus li.current-menu-parent a,#menus li.current-cat a,#menus li.current_page_item a:hover,#menus li.current-cat a:hover {
-
-	background: #f7f5f5;
-
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#ebebeb),color-stop(1,#f7f5f5));
-
-	background-image: -moz-linear-gradient(top,#ebebeb,#f7f5f5);
+#menus li.current-menu-parent > a,#menus li.current-menu-item > a{
 
 	height: 37px;
 
@@ -1244,7 +1222,9 @@ a:hover {
 
 }
 
-
+#menus li ul.sub-menu li  a ,ul.sub-menu li.current-menu-item > a{
+	padding:0 !important;
+}
 
 .mynav ul {
 
@@ -1315,24 +1295,6 @@ a:hover {
 	overflow: hidden;
 
 	background-color: #fcfcfc;
-
-	background-image: -ms-linear-gradient(top,#efefef,#fcfcfc);
-
-	background-image: -webkit-gradient(linear,0 0,0 100%,from(#efefef),to(#fcfcfc));
-
-	background-image: -webkit-linear-gradient(top,#efefef,#fcfcfc);
-
-	background-image: -o-linear-gradient(top,#efefef,#fcfcfc);
-
-	background-image: -moz-linear-gradient(top,#efefef,#fcfcfc);
-
-	background-image: linear-gradient(top,#efefef,#fcfcfc);
-
-	background-repeat: repeat-x;
-
-	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#efefef',endColorstr='#fcfcfc',GradientType=0);
-
-	filter: progid:dximagetransform.microsoft.gradient(enabled=false);
 
 	z-index: 99
 
