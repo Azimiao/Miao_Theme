@@ -1220,7 +1220,7 @@ a:hover {
 
 
 
-#menus li.current_page_item a,#menus li.current-menu-item a,#menus li.current-menu-parent a,#menus li.current-cat a,#menus li.current_page_item a:hover,#menus li.current-cat a:hover {
+#menus li.current-menu-parent > a,#menus li.current-menu-item > a{
 
 	background: #f7f5f5;
 
@@ -1244,7 +1244,9 @@ a:hover {
 
 }
 
-
+#menus li ul.sub-menu li  a ,ul.sub-menu li.current-menu-item > a{
+	padding:0 !important;
+}
 
 .mynav ul {
 
