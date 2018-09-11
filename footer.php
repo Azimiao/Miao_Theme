@@ -49,30 +49,14 @@
 </footer>
 
 
-
-
-<?php if( is_single() || is_page() && comments_open() ){ ?>
-
-<script src="<?php  echo get_template_directory_uri(); ?>/js/comments.js" ></script>
-<script type="text/javascript" src="<?php  echo get_template_directory_uri(); ?>/colorbox/jquery.colorbox-min.js" ></script>
-
-
-
 <!-- activity-power-mode 打字效果 -->
 <script src='<?php  echo get_template_directory_uri() ?>/js/activity-power-mode.min.js' ></script>
-
 <script>
 POWERMODE.colorful = true;
 POWERMODE.shake = false;
 document.body.addEventListener('input', POWERMODE);
 </script>
-
 <!-- 打字效果End -->
-<?php }; ?>
-
-
-<script src="<?php  echo get_template_directory_uri(); ?>/js/purelove.js" ></script>
-
 
 <!-- 标题变化 -->
 <script>
@@ -80,30 +64,26 @@ eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/
 </script>
 <!-- 标题变化End -->
 
-
-
 <!-- 消息框 -->
-<!--
-<script src="//js.azimiao.com/zi_MessageBox_0_0_4.js" ></script>
-<script>init_Message_Box("newpink","welcome");</script>
--->
 <script src="<?php  echo get_template_directory_uri(); ?>/js/zi_message2.js" type="text/javascript" charset="utf-8"></script>
 <script>
 	zi_welcome.checkCookie();
 </script>
-<script src="http://localhost.azimiao.com/wp-content/themes/PureLove/js/responsiveslides.min.js"></script>
 <!-- 消息框End -->
-
 
 <?php wp_footer(); ?>
 
 <?php 
-
 	//显示调试信息
 	if(function_exists('performance')) performance(false) ;
 
 ?>
-
+<!-- JS文件 -->
+<script src="http://localhost.azimiao.com/wp-content/themes/PureLove/js/responsiveslides.min.js"></script>
+<script src="<?php  echo get_template_directory_uri(); ?>/js/comments.js" defer="defer"></script>
+<script type="text/javascript" src="<?php  echo get_template_directory_uri(); ?>/colorbox/jquery.colorbox-min.js" defer="defer"></script>
+<script src="<?php  echo get_template_directory_uri(); ?>/js/purelove.js" defer="defer"></script>
+<script src="<?php  echo get_template_directory_uri(); ?>/js/ajax.js" defer="defer"></script>
+<!-- JSEnd -->
 </body>
-
 </html>

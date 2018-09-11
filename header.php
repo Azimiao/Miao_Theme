@@ -32,8 +32,6 @@
 <link rel="icon" href="<?php  echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="<?php  echo get_template_directory_uri(); ?>/style.css">
 <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="<?php  echo get_template_directory_uri(); ?>/js/getviews.js"></script>
-<script src="<?php  echo get_template_directory_uri(); ?>/js/ajax.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php  echo get_template_directory_uri(); ?>/css/notify2.css" />
 
 

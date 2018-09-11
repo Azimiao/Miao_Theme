@@ -1,8 +1,8 @@
 
-var ajaxhome = '';
-var ajaxcontent = new Array("content","navigation");
+var ajaxhome = 'azimiao.com';
+var ajaxcontent = new Array("navigation","content");
 var ajaxsearch_class = 'searchform';
-var ajaxignore_string = new String('#, /wp-, .pdf, .zip, .rar, /goto');
+var ajaxignore_string = new String('#comments,#, /wp-, .pdf, .zip, .rar, /goto');
 var ajaxignore = ajaxignore_string.split(', ');
 var ajaxloading_code = 'loading';
 var ajaxloading_error_code = 'error';
@@ -51,7 +51,6 @@ function ajaxloadPageInit(scope) {
 }
 
 function ajaxloadPage(url, push, getData) {
-    console.log(url);
     if (!ajaxisLoad) {
         if (ajaxscroll_top == true) {
             jQuery('html,body').animate({ scrollTop: 0 }, 1500);
@@ -70,13 +69,10 @@ function ajaxloadPage(url, push, getData) {
             }
         }
 
-
-
         if (!jQuery('#' + ajaxcontent[0])) {
             return;
         }
-        
-        //jQuery('#' + ajaxcontent).append(ajaxloading_code);
+
         jQuery('#' + ajaxcontent[0]).fadeTo("slow", 0.4, function () {
             jQuery('#' + ajaxcontent[0]).fadeIn("slow", function () {
                 jQuery.ajax({
@@ -87,7 +83,6 @@ function ajaxloadPage(url, push, getData) {
                     dataType: "html",
                     success: function (data) {
                         ajaxisLoad = false;
-
                         datax = data.split('<title>');
                         titlesx = data.split('</title>');
                         if (datax.length == 2 || titlesx.length == 2) {
@@ -108,33 +103,13 @@ function ajaxloadPage(url, push, getData) {
                             }
                         }
 
-                        var htmlData = new DOMParser().parseFromString(data,"text/html");
-                        
-                        for(var ii = 0;ii < ajaxcontent.length;ii++){
+                        var htmlData = new DOMParser().parseFromString(data, "text/html");
+
+                        for (var ii = 0; ii < ajaxcontent.length; ii++) {
 
 
-                            var temp = htmlData.querySelector("#"+ajaxcontent[ii]);
-                            var output = temp.innerHTML; 
-                            //console.log(ajaxcontent.length);
-                            //var str = 'id="' + ajaxcontent[ii] + '"';
-                            //console.log(str);
-                            /*                            
-                            var tempdata = data.split('id="' + ajaxcontent[ii] + '"')[1];
-                            tempdata = tempdata.substring(tempdata.indexOf('>') + 1);
-                            var depth = 1;
-                            var output = '';
-                            while (depth > 0) {
-                                temp = tempdata.split('</div>')[0];
-                                i = 0;
-                                pos = temp.indexOf("<div");
-                                while (pos != -1) {
-                                    i++;
-                                    pos = temp.indexOf("<div", pos + 1);
-                                }
-                                depth = depth + i - 1;
-                                output = output + tempdata.split('</div>')[0] + '</div>';
-                                tempdata = tempdata.substring(tempdata.indexOf('</div>') + 6);
-                            }*/
+                            var temp = htmlData.querySelector("#" + ajaxcontent[ii]);
+                            var output = temp.innerHTML;
                             document.getElementById(ajaxcontent[ii]).innerHTML = output;
                             jQuery('#' + ajaxcontent[ii]).css("position", "absolute");
                             jQuery('#' + ajaxcontent[ii]).css("left", "20000px");
@@ -160,7 +135,7 @@ function ajaxloadPage(url, push, getData) {
                         ajaxisLoad = false;
                         document.title = "Error loading requested page!";
                         //document.getElementById(ajaxcontent[0]).innerHTML = ajaxloading_error_code;
-                        alert("获取失败:"+ ajaxloading_error_code);
+                        alert("获取失败:" + ajaxloading_error_code);
                     }
                 });
             });
@@ -185,27 +160,25 @@ function ajaxcheck_ignore(url) {
 }
 function ajaxreload_code() {
     //add code 
+    PureLoveThemeInit();
     try {
-        console.log("----------a");
         GetViewsNum();
     } catch (error) {
-        
+        console.log(error);
     }
     try {
-        console.log("bbbbbbbbbbb");
-        CommentInit(); 
+        CommentInit();
     } catch (error) {
-        
+        console.log(error);
     }
     try {
         GetViewsNumSingle();
     } catch (error) {
         console.log(error);
     }
-
     SliderInit();
-    
-      
+
+
 }
 function ajaxclick_code(thiss) {
     jQuery('ul.nav li').each(function () {

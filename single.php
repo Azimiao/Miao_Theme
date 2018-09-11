@@ -5,14 +5,6 @@
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 <!--文章区域-->
-<script type="text/javascript"> 
-  jQuery(document).ready(function()
-  {   
-    GetViewsNumSingle();
-  })  
-  </script> 
-
-
 <article id="article" class="post-entry">
 
 <header class="entry-header" itemscope itemtype="http://data-vocabulary.org/Person">
