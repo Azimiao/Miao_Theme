@@ -1,4 +1,7 @@
-var ajaxPath = "http://localhost.azimiao.com/wp-admin/admin-ajax.php";
+var ThemeConfig = ThemeConfig||{
+    ajaxHome:"azimiao.com",
+    ajaxPath:"http://localhost/wp-admin/admin-ajax.php",
+};
 
 function PureLoveThemeInit() {
     try {
@@ -106,7 +109,7 @@ function GetViewsNumSingle() {
     }
     jQuery.ajax({
         type: "GET",
-        url: ajaxPath,
+        url: ThemeConfig.ajaxPath,
         data: { action: "SetVisitors", post_id: ele.attributes["name"].value },
         dataType: "json",
         success: function (data) {
@@ -119,7 +122,7 @@ function GetViewsNumSingle() {
 function GetViewNumAjax(tempID, tempIDNum, mElement = null) {
     jQuery.ajax({
         type: "GET",
-        url: ajaxPath,
+        url: ThemeConfig.ajaxPath,
         data: { action: "GetVisitors", post_id: tempIDNum },
         dataType: "json",
         success: function (data) {

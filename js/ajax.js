@@ -1,5 +1,5 @@
 
-var ajaxhome = 'azimiao.com';
+var ajaxhome = ThemeConfig.ajaxHome;
 var ajaxcontent = new Array("navigation","content");
 var ajaxsearch_class = 'searchform';
 var ajaxignore_string = new String('#comments,#, /wp-, .pdf, .zip, .rar, /goto');

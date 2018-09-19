@@ -251,8 +251,7 @@ function MyIndexSlider() {
 		<ul class="rslides" id="slider">
 		<?php
         foreach (ThemeConfig::$sliderPicPath as $value) { ?>
-				<li><img src='<?php
-            echo $value ?>'></li>
+				<li><img src='<?php echo $value ?>'></li>
 		<?php
         } ?>
 		</ul>
