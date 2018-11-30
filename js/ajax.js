@@ -29,10 +29,12 @@ function ajaxloadPageInit(scope) {
             this.blur();
             var caption = this.title || this.name || "";
             var group = this.rel || false;
+            /*
             try {
                 ajaxclick_code(this);
             } catch (err) {
             }
+            */
             ajaxloadPage(this.href);
         }
     });
@@ -72,12 +74,12 @@ function ajaxloadPage(url, push, getData) {
         if (!jQuery('#' + ajaxcontent[0])) {
             return;
         }
-        jQuery('#' + ajaxcontent[1]).append(ajaxloading_code);
+        //jQuery('#' + ajaxcontent[0]).append(ajaxloading_code);
         //document.getElementById(ajaxcontent[1]).innerHTML = ajaxloading_code;
-        var contentMain = document.getElementById(ajaxcontent[1]);
-        contentMain.style.webkitFilter = "brightness(95%)";
-        jQuery('#' + ajaxcontent[0]).fadeTo("slow", 0.4, function () {
-            jQuery('#' + ajaxcontent[0]).fadeIn("slow", function () {
+        //var contentMain = document.getElementById(ajaxcontent[1]);
+        //contentMain.style.webkitFilter = "brightness(96%)";
+        jQuery('#' + ajaxcontent[1]).fadeTo("slow", 0.2, function () {
+            jQuery('#' + ajaxcontent[1]).fadeIn("slow", function () {
                 jQuery.ajax({
                     type: "GET",
                     url: url,
@@ -106,10 +108,8 @@ function ajaxloadPage(url, push, getData) {
                             }
                         }
                         var htmlData = new DOMParser().parseFromString(data, "text/html");
-                        contentMain.style.webkitFilter = "brightness(100%)";
+                        //contentMain.style.webkitFilter = "brightness(100%)";
                         for (var ii = 0; ii < ajaxcontent.length; ii++) {
-
-
                             var temp = htmlData.querySelector("#" + ajaxcontent[ii]);
                             var output = temp.innerHTML;
                             document.getElementById(ajaxcontent[ii]).innerHTML = output;
