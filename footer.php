@@ -67,7 +67,7 @@ eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/
 <!-- 消息框 -->
 <script src="<?php  echo get_template_directory_uri(); ?>/js/zi_message2.js" type="text/javascript" charset="utf-8"></script>
 <script>
-	//zi_welcome.checkCookie();
+	zi_welcome.checkCookie();
 </script>
 <!-- 消息框End -->
 
