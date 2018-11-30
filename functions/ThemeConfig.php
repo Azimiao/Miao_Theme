@@ -114,7 +114,7 @@ remove_action('admin_init', '_maybe_update_core'); // 禁止 WordPress 检查更
 remove_action('admin_init', '_maybe_update_plugins'); // 禁止 WordPress 更新插件
 remove_action('admin_init', '_maybe_update_themes'); // 禁止 WordPress 更新主题
 //禁用图片压缩
-add_filter('jpeg_quality', function ($arg) {return 100;});
+//add_filter('jpeg_quality', function ($arg) {return 100;});
 //替换头像服务器
 add_filter('get_avatar', 'get_ssl_avatar');
 //关闭feed

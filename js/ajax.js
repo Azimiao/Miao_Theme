@@ -30,6 +30,7 @@ function ajaxloadPageInit(scope) {
             var caption = this.title || this.name || "";
             var group = this.rel || false;
             try {
+                console.log("AJAX");
                 ajaxclick_code(this);
             } catch (err) {
             }
