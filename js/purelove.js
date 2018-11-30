@@ -1,4 +1,5 @@
 var ThemeConfig = ThemeConfig||{
+    ajaxState:true,
     ajaxHome:"azimiao.com",
     ajaxPath:"http://localhost/wp-admin/admin-ajax.php",
 };
@@ -56,7 +57,9 @@ function PureLoveThemeInit() {
         });
     jQuery('h2 a').click(function () {
         jQuery(this).text(' 正在载入本文...');
+        if(!ThemeConfig.ajaxState){
         window.location = jQuery(this).attr('href');
+        }
     });
 }
 function hide_submenu() {

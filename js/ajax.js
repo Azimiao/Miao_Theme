@@ -24,8 +24,9 @@ window.onpopstate = function (event) {
 
 function ajaxloadPageInit(scope) {
     jQuery(scope + "a").click(function (event) {
+        event.preventDefault();
         if (this.href.indexOf(ajaxhome) >= 0 && ajaxcheck_ignore(this.href) == true) {
-            event.preventDefault();
+            
             this.blur();
             var caption = this.title || this.name || "";
             var group = this.rel || false;
@@ -52,6 +53,7 @@ function ajaxloadPageInit(scope) {
 }
 
 function ajaxloadPage(url, push, getData) {
+    console.log("AJAXlOAD");
     if (!ajaxisLoad) {
         if (ajaxscroll_top == true) {
             jQuery('html,body').animate({ scrollTop: 0 }, 1500);
@@ -71,6 +73,7 @@ function ajaxloadPage(url, push, getData) {
         }
 
         if (!jQuery('#' + ajaxcontent[0])) {
+            console.log("AJAXlOAD2");
             return;
         }
 
@@ -103,7 +106,7 @@ function ajaxloadPage(url, push, getData) {
                                 _gaq.push(['_trackPageview', path + getData]);
                             }
                         }
-
+                        console.log("donotgo");
                         var htmlData = new DOMParser().parseFromString(data, "text/html");
 
                         for (var ii = 0; ii < ajaxcontent.length; ii++) {
