@@ -1,7 +1,7 @@
 var ThemeConfig = ThemeConfig||{
     ajaxState:true,
     ajaxHome:"azimiao.com",
-    ajaxPath:"http://localhost/wp-admin/admin-ajax.php",
+    ajaxPath:"https://www.azimiao.com/wp-admin/admin-ajax.php",
 };
 
 function PureLoveThemeInit() {

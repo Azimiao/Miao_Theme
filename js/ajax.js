@@ -78,8 +78,8 @@ function ajaxloadPage(url, push, getData) {
         //document.getElementById(ajaxcontent[1]).innerHTML = ajaxloading_code;
         //var contentMain = document.getElementById(ajaxcontent[1]);
         //contentMain.style.webkitFilter = "brightness(96%)";
-        jQuery('#' + ajaxcontent[1]).fadeTo("slow", 0.2, function () {
-            jQuery('#' + ajaxcontent[1]).fadeIn("slow", function () {
+        jQuery('#' + ajaxcontent[1]).fadeTo("fast", 0.2, function () {
+            jQuery('#' + ajaxcontent[1]).fadeIn("fast", function () {
                 jQuery.ajax({
                     type: "GET",
                     url: url,
@@ -137,7 +137,12 @@ function ajaxloadPage(url, push, getData) {
                         ajaxisLoad = false;
                         document.title = "Error loading requested page!";
                         //document.getElementById(ajaxcontent[0]).innerHTML = ajaxloading_error_code;
-                        alert("获取失败:" + ajaxloading_error_code);
+                        //alert("获取失败:" + ajaxloading_error_code);
+                        try {
+                            zi_notify.showNotify(1,{title:"错误！",content:"Ajax加载失败"});
+                        } catch (error) {
+                            
+                        }
                     }
                 });
             });
@@ -175,6 +180,13 @@ function ajaxreload_code() {
     }
     try {
         GetViewsNumSingle();
+    } catch (error) {
+        console.log(error);
+    }
+    try {
+        jQuery('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
     } catch (error) {
         console.log(error);
     }
