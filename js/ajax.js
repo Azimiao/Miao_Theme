@@ -1,6 +1,6 @@
 
 var ajaxhome = ThemeConfig.ajaxHome;
-var ajaxcontent = new Array("navigation","content");
+var ajaxcontent = new Array("navigation", "content");
 var ajaxsearch_class = 'searchform';
 var ajaxignore_string = new String('#comments, #, /wp-, .pdf, .zip, .rar, /goto, respond, reply');
 var ajaxignore = ajaxignore_string.split(', ');
@@ -139,9 +139,9 @@ function ajaxloadPage(url, push, getData) {
                         //document.getElementById(ajaxcontent[0]).innerHTML = ajaxloading_error_code;
                         //alert("获取失败:" + ajaxloading_error_code);
                         try {
-                            zi_notify.showNotify(1,{title:"错误！",content:"Ajax加载失败"});
+                            zi_notify.showNotify(1, { title: "错误！", content: "Ajax加载失败" });
                         } catch (error) {
-                            
+
                         }
                     }
                 });
@@ -184,9 +184,23 @@ function ajaxreload_code() {
         console.log(error);
     }
     try {
-        jQuery('pre code').each(function(i, block) {
+        jQuery('pre code').each(function (i, block) {
             hljs.highlightBlock(block);
-          });
+        });
+    } catch (error) {
+        console.log(error);
+    }
+    try {
+        {
+            /*console.log("回调谷歌");
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-3894398344003625",
+                enable_page_level_ads: true
+            });
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            console.log("Fin");
+            */
+        }
     } catch (error) {
         console.log(error);
     }
