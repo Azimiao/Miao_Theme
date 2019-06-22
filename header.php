@@ -12,7 +12,7 @@
 
 <link rel="dns-prefetch" href="https://cdn.v2ex.com">
 
-<meta name = "viewport" content ="initial-scale=1.0,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
 <meta name="theme-color" content="#ff8c83">
 
@@ -75,7 +75,10 @@
 <div id="navigation">
 
 	<div class="inner clearfix">
-
+	<button 
+		class="menu-toggle" 
+		onclick="onClickMenuBtn()"
+	>主要菜单</button>
 	<div id="menus" class="mynav" >
 
 		<?php wp_nav_menu( array( 'theme_location' => 'header-menu',)); ?>
