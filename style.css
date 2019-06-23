@@ -633,14 +633,12 @@ a:hover {
 
 #menus li.current-menu-parent > a,#menus li.current-menu-item > a {
 	background: #f7f5f5;
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#ebebeb),color-stop(1,#f7f5f5));
-	background-image: -moz-linear-gradient(top,#ebebeb,#f7f5f5);
 	height: 37px;
 	line-height: 37px;
-	margin: -3px 0 -4px;
+	margin: -1px 0px;
 	border: solid #CCC;
 	font-weight: 700;
-	border-width: 1px 1px 0;
+	border-width: 1px;
 	position: relative
 }
 
@@ -1014,10 +1012,7 @@ a.lover:hover {
 	background: #fff;
 	padding: 10px;
 	border-radius: 5px;
-	-webkit-box-shadow: 0 0 5px #ddd;
-	-moz-box-shadow: 0 0 5px #ddd;
 	box-shadow: 0 0 5px #ddd;
-	_border: 1px dashed #ddd;
 	overflow: hidden
 }
 
