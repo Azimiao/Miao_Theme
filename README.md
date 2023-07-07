@@ -5,7 +5,7 @@ Purelove X7 主题是梦月酱2013年开发的一款充满动漫风格的Wrodpre
 梓喵出没修改版在梦月酱的PureLove主题基础上进行了微不足道的样式修改，使之能够符合梓喵出没博客现阶段的相关需求。因本博客遵守BY-NC-SA协议，按照该协议要求，本博放出该修改的主题内容。
 
 ### 原作者
-梦月酱(http://www.wysafe.com/)
+梦月酱
 
 ### 修改
 梓喵出没(http://www.azimiao.com/)
@@ -57,7 +57,7 @@ Purelove X7 主题是梦月酱2013年开发的一款充满动漫风格的Wrodpre
 
 
 ### 链接
-- [主题作者梦月酱](http://www.wysafe.com)
+- ~主题作者梦月酱~
 - [梦月酱PureLove主题原版](https://www.mywpku.com/purelove.html)
 - [PureLove主题梓喵出没修改版](https://github.com/Azimiao/Miao_Theme)
 
