@@ -58,7 +58,7 @@ Purelove X7 主题是梦月酱2013年开发的一款充满动漫风格的Wrodpre
 
 ### 链接
 - ~主题作者梦月酱~
-- [梦月酱PureLove主题原版](https://www.mywpku.com/purelove.html)
+- ~梦月酱PureLove主题原版~
 - [PureLove主题梓喵出没修改版](https://github.com/Azimiao/Miao_Theme)
 
 ### 使用方法
