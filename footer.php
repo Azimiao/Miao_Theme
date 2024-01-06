@@ -1,4 +1,5 @@
 </section>
+</div>
 <span class="clearfix"></span>
 <div id="bak_top"></div>
 </div>
@@ -36,10 +37,10 @@
 
 <div class="copry clearfix">
 	<div class="maxt">
-    	       <span id="mt"><a href="//cn.wordpress.org" rel="external" target="_blank"><i class="miao miao-wordpress miao-fw"></i></a> <a href="//creativecommons.org/licenses/by-nc-sa/3.0/cn/legalcode" target="_blank"><i class="miao miao-cc miao-fw"></i></a>Theme Purelove by <a href="//www.wysafe.com" target="_blank">梦月酱</a></span>
+    	       <span id="mt"><a href="//cn.wordpress.org" rel="external" target="_blank"><i class="miao miao-wordpress miao-fw"></i></a> <a href="//creativecommons.org/licenses/by-nc-sa/3.0/cn/legalcode" target="_blank"><i class="miao miao-cc miao-fw"></i></a>Theme Purelove by <a href="//www.azimiao.com/purelovethemes" target="_blank">梦月酱</a></span>
 		<div id="copyright">
 			<?php $options = get_option('pure_options'); ?>
-			<i class="miao miao-copyright miao-fw"></i>2014-2017 <?php bloginfo('name'); ?> | <a href="<?php ThemeConfig::GetSiteMap() ?>" target="_blank">[网站地图]</a> |  <?php echo($options['beianhao']); ?> <?php echo($options['tongjicode']); ?> 
+			<i class="miao miao-copyright miao-fw"></i>2014-2023 <?php bloginfo('name'); ?> | <a href="<?php ThemeConfig::GetSiteMap() ?>" target="_blank">[网站地图]</a> |  <?php echo($options['beianhao']); ?> <?php echo($options['tongjicode']); ?> 
 		</div>
 	</div>
 </div>
@@ -48,30 +49,14 @@
 </footer>
 
 
-
-
-<?php if( is_single() || is_page() && comments_open() ){ ?>
-
-<script src="<?php  echo get_template_directory_uri(); ?>/js/comments.js" ></script>
-<script type="text/javascript" src="<?php  echo get_template_directory_uri(); ?>/colorbox/jquery.colorbox-min.js" ></script>
-
-
-
 <!-- activity-power-mode 打字效果 -->
 <script src='<?php  echo get_template_directory_uri() ?>/js/activity-power-mode.min.js' ></script>
-
 <script>
 POWERMODE.colorful = true;
 POWERMODE.shake = false;
 document.body.addEventListener('input', POWERMODE);
 </script>
-
 <!-- 打字效果End -->
-<?php }; ?>
-
-
-<script src="<?php  echo get_template_directory_uri(); ?>/js/purelove.js" ></script>
-
 
 <!-- 标题变化 -->
 <script>
@@ -79,25 +64,25 @@ eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/
 </script>
 <!-- 标题变化End -->
 
-
-
 <!-- 消息框 -->
-<!--
-<script src="//js.azimiao.com/zi_MessageBox_0_0_4.js" ></script>
-<script>init_Message_Box("newpink","welcome");</script>
--->
+<script src="<?php  echo get_template_directory_uri(); ?>/js/zi_message2.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	zi_welcome.checkCookie();
+</script>
 <!-- 消息框End -->
-
 
 <?php wp_footer(); ?>
 
 <?php 
-
 	//显示调试信息
 	if(function_exists('performance')) performance(false) ;
 
 ?>
-
+<!-- JS文件 -->
+<script src="<?php  echo get_template_directory_uri(); ?>/js/responsiveslides.min.js"></script>
+<script src="<?php  echo get_template_directory_uri(); ?>/js/comments.js" defer="defer"></script>
+<script type="text/javascript" src="<?php  echo get_template_directory_uri(); ?>/colorbox/jquery.colorbox-min.js" defer="defer"></script>
+<script src="<?php  echo get_template_directory_uri(); ?>/js/purelove.js" defer="defer"></script>
+<!-- JSEnd -->
 </body>
-
 </html>

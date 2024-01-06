@@ -1,5 +1,3 @@
-<?php header('X-Frame-Options: deny'); ?>
-
 <!DOCTYPE html>
 
 <html lang="zh-hans">
@@ -9,8 +7,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 <meta charset="UTF-8" />
-
-<link rel="dns-prefetch" href="https://cdn.v2ex.com">
 
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
@@ -29,15 +25,13 @@
 <link rel="canonical" href="<?php the_permalink(); ?>" />
 
 <?php } ?>
-
-<link rel="stylesheet" href="<?php  echo get_template_directory_uri(); ?>/style.css">
-
-<script src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
-
 <link rel="icon" href="<?php  echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="<?php  echo get_template_directory_uri(); ?>/style.css">
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php  echo get_template_directory_uri(); ?>/css/notify2.css" />
+
 
 <?php wp_head(); ?>
-
 </head>
 
 <body>
@@ -71,7 +65,7 @@
 </div>
 
 </header>
-
+<div id = "mainContent">
 <div id="navigation">
 
 	<div class="inner clearfix">

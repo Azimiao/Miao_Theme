@@ -108,7 +108,7 @@ echo '</div>';
 echo '<div class="coms_main" id="div-comment-'.get_comment_ID().'">';
 	echo comment_text();
 	if ($comment->comment_approved == '0'){
-		echo '<span class="coms_approved">貌似你不是妹子？那就让我检查一下好了！</span><br />';
+		echo '<span class="coms_approved">您的评论将在审核后显示。</span><br />';
 	}
 	//信息
 	echo '<div class="coms_meta">';

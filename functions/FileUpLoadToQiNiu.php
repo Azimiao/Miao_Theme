@@ -14,7 +14,7 @@
 
 
 
-require_once TEMPLATEPATH . '/functions/qiniu/autoload.php';
+require_once TEMPLATEPATH . '/functions/qiniu7.3.0/autoload.php';
 
 
 

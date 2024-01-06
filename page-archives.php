@@ -74,11 +74,9 @@ Template Name: Archives
 
             <td width="40" style="text-align:right;"><?php the_time('j'); ?>日</td>
 
-            <td width="400"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
+            <td width="520"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
 
             <td width="120"><a class="comm" href="<?php comments_link(); ?>" title="查看 <?php the_title(); ?> 的评论"><?php comments_number('0', '1', '%'); ?>人评论</a></td>
-
-            <td width="120"><span class="view"><?php get_post_views($post -> ID); ?> 人阅读</span></td>
 
         </tr>
 

@@ -79,7 +79,7 @@ function comments_list($comment, $args, $depth) {
     }
     echo '</div>';
     if ($comment->comment_approved == '0') {
-        echo '<span class="coms_approved">绅士？那让哥哥肛一下！~</span><br />';
+        echo '<span class="coms_approved">您的评论将在审核后显示~</span><br />';
     } else {
         echo comment_text();
     }
@@ -237,7 +237,7 @@ href="' . get_option('home') . '">' . get_option('blogname') . '</a></p>
         
     }
 }
-add_action('comment_post', 'comment_mail_notify');
+// add_action('comment_post', 'comment_mail_notify');
 
 //获取访客VIP样式
 function get_author_class($comment_author_email, $user_id) {

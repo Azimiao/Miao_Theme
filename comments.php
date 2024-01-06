@@ -56,7 +56,7 @@ if ( comments_open() ) {
 
 			<p><label for="email">邮箱</label><input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="25" tabindex="2" /><em>*</em></p>
 
-			<p class="comment-author-url"><label for="url">空间</label><input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="36" tabindex="3" /></p>
+			<p class="comment-author-url" style="display:none;" ><label for="url">空间</label><input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="36" tabindex="3" /></p>
 
 		</div>
 
@@ -76,7 +76,7 @@ if ( comments_open() ) {
 			<div id="smileys"><?php comments_smilies();?></div>
 			<div class="comment-editor">
 			
-			   <a id="comment-smiley" href="javascript:;">表情</a><a href="javascript:SIMPALED.Editor.daka()">签到</a><a href="javascript:SIMPALED.Editor.pre()">代码</a><a href="javascript:SIMPALED.Editor.good()">赞美</a><a href="javascript:SIMPALED.Editor.bad()">埋怨</a>
+			   <a id="comment-smiley" href="javascript:;">表情</a><a href="javascript:SIMPALED.Editor.pre()">代码</a><a href="//www.appinn.com/markdown/" target="_blank">MD语法参考</a>
 
 			</div>
 

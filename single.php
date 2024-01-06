@@ -5,7 +5,6 @@
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 <!--文章区域-->
-
 <article id="article" class="post-entry">
 
 <header class="entry-header" itemscope itemtype="http://data-vocabulary.org/Person">
@@ -13,14 +12,15 @@
 <h1 class="entry-title" itemtype="http://schema.org/Article"><a itemprop="url" href="<?php the_permalink() ?>" rel="bookmark"><span itemprop="name"><?php the_title(); ?></span></a></h1>
 
 <div class="entry-meta">
+<span>📅</span>
+<span ><?php the_time('Y-n-d') ?></span> /🏸
 
-<span ><?php the_time('Y-n-d') ?></span> /
+<span itemprop="articleSection"><?php the_category(', ') ?></span> /📌
 
-<span itemprop="articleSection"><?php the_category(', ') ?></span> /
+<span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" class="fn"><?php the_author(); ?></span></span>
+<!-- 	/
 
-<span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name" class="fn"><?php the_author(); ?></span></span> /
-
-<span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span id ="viewsNum" itemprop="ratingCount">...</span>人阅读
+<span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span id ="viewsNum" name="<?php //the_ID();  ?>" itemprop="ratingCount">...</span>人阅读 -->
 
 <span class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">位置：<a href="<?php echo get_option('home'); ?>/">首页</a> &raquo; <?php the_category(', ') ?> &raquo; <a href="<?php the_permalink() ?>" rel="bookmark" itemprop="url">本页</a></span>
 
@@ -34,7 +34,6 @@
 
   <?php getSingleThumb(); ?>
 
-
 <?php the_content();?>
 
 </div>
@@ -44,7 +43,6 @@
 type="image/svg+xml"
 
 pluginspage="http://www.adobe.com/svg/viewer/install/" /></div>
-
 
 
 <span class="poststags clearfix"><?php echo the_tags('',''); ?></span>
@@ -125,22 +123,7 @@ else {
 
 <?php comments_template( '', true ); ?>   
 
-<script type="text/javascript"> 
-  jQuery(document).ready(function($)
-  {   
-    $.ajax(
-    {  
-      type: "GET",  
-      url: '<?php echo admin_url('admin-ajax.php') ?>',  
-      data: {action:"SetVisitors",post_id:"<?php echo($post->ID) ?>"},  
-      dataType: "json",  
-      success: function(data)
-      {  
-        $("#viewsNum").html(data);  
-      }  
-    })  
-  })  
-  </script> 
+
 
 </article>
 

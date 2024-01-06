@@ -3,13 +3,6 @@
 
 
 
-
-
-
-
-
-
-
 if (have_posts()):
 
 
@@ -107,53 +100,22 @@ if (have_posts()):
 
 
 <div class="entry-meta">
-
-
-
+<span>📅</span>
 	<span ><?php the_time('Y-n-d') ?></span> /
 
-
-
-    Write by
-
+    📌 Write by
 	<span itemprop="author" itemscope itemtype="http://schema.org/Person">
-
-
-
 		<span itemprop="name" class="fn"><?php the_author(); ?></span>
 
-
-
-	</span> /
-
-
-
+	</span> 
+<!-- 	/
 	<span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
 
-
-
-	<span id= "viewsNum-<?php the_ID();  ?>" itemprop="ratingCount">...</span>人阅读 
+	<span name="viewsNum" id= "viewsNum-<?php //the_ID();  ?>" itemprop="ratingCount">...</span>人阅读 
         
-        <script>
-        jQuery(document).ready(function($)
-        {
-            $.ajax(
-            {
-                type:"GET",
-                url:"<?php echo admin_url('admin-ajax.php') ?>",
-                data:{action:"GetVisitors",post_id:"<?php the_ID(); ?>"},
-                dataType:"json",
-                success:function(data){
-                    $("#viewsNum-<?php the_ID() ?>").html(data);
-                }
-            })
-        })
-    </script>
-
-
 
 	</span>
-
+ -->
 
 
 </div>
@@ -166,102 +128,45 @@ if (have_posts()):
 
 <div class="clearfix"></div>
 
-
-
-
-
-
-
 <!-- pic -->
-
-
-
 <div class="postspicbox">
-
-
-
 	<div class="thumbnail">
-
-
-
 		 <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" target="_blank">
-
 	            <img src="<?php echo post_thumbnail(140,100); ?> " alt="<?php the_title(); ?>" >
-
 		  </a>
-
-
 	</div>
-
 <!-- picFinished -->
-
 </div>
-
-
 
 <div class="postscontent entry-content" itemprop="articleBody">
 
-
-
 <?php
 
-
-
             if (post_password_required($post)) {
-
-
-
                 $output = get_the_password_form();
-
-
-
                 echo $output;
-
-
-
             } else {
-
-
-
                 //echo mb_substr(strip_tags(apply_filters('the_content', $post->post_content)) , 0, 200, 'utf-8');
 
-
-
                 echo the_excerpt();
-
-
-
+                //echo get_excerpt(190);
             }
 
 
 
 ?>
 
-
-
 </div>
-
-
 
 </article>
 
-
-
 <?php
-
-
 
         } ?>
 
-
-
 <?php
 
-
-
     endwhile;
-
-
 
 endif; ?>
 
