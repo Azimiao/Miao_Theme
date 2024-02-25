@@ -109,16 +109,25 @@ ol,ul,li {
 /* 文章ol ul列表 */
 
 #article_content ol,#article_content ul {
-	margin-left: 24px;
-	margin-bottom: 16px;
+	list-style-position:inside !important;
+	font-size:95%;
+	border-radius:5px;
+	padding:0.25em 1em;
+	margin:0 0.5em;
+}
+
+#article_content > ul,#article_content > ol{
+	border:1px dotted;
 }
 
 #article_content ol,#article_content ol li {
 	list-style: decimal;
+	list-style-position:inside;
 }
 
 #article_content ul,#article_content ul li {
 	list-style: disc;
+	list-style-position:inside;
 }
 
 #article ol li::marker,#article ul li::marker{
@@ -299,6 +308,12 @@ a {
 
 a:hover {
 	color: #ff8c83
+}
+
+.purelove-archives h3{
+	margin: 1em 0;
+	font-size: 1.5em;
+	font-weight: bold;
 }
 
 ::selection {
@@ -1128,11 +1143,12 @@ a.lover:hover {
 	content:"> ";
 }
 #article_content h5 {
+	font-size:100%;
 	border-bottom: 1px dashed #a9a9a9;
 	color: #888787;
 }
 #article_content h5::before {
-	content:"- ";
+	content:"-> ";
 }
 
 #article_like {
@@ -2932,3 +2948,11 @@ span.myinfo_pic {
 .link-content li a {color:gray;}
 
 .link-content li:hover a{color:white !important;}
+
+svg[id^="mermaid-"] {
+	max-width:100%;
+}
+
+.mermaid {
+	max-width:100%;
+}
