@@ -53,6 +53,10 @@ article.posts p {
 	margin-bottom:2px;
 }
 
+#article_content table{
+	margin-bottom:1em;
+}
+
 #article_content details summary
 {
 	padding:5px;
@@ -109,26 +113,49 @@ ol,ul,li {
 /* 文章ol ul列表 */
 
 #article_content ol,#article_content ul {
-	list-style-position:inside !important;
 	font-size:95%;
 	border-radius:5px;
 	padding:0.25em 1em;
-	margin:0 0.5em;
+	margin:1em 0.5em;
+}
+
+#article_content ul > li{
+	margin:auto 0.5em;
+}
+
+ #article_content ol > li{
+	margin:auto 1em;
 }
 
 #article_content > ul,#article_content > ol{
 	border:1px dotted;
 }
 
-#article_content ol,#article_content ol li {
+#article_content ol,#article_content ol > li {
 	list-style: decimal;
-	list-style-position:inside;
+	list-style-position:outside;
 }
 
-#article_content ul,#article_content ul li {
+#article_content ul,#article_content ul > li {
 	list-style: disc;
-	list-style-position:inside;
+	list-style-position:outside;
 }
+
+#article_content li > p, #article_content li > blockquote, #article_content li > img{
+	margin:unset;
+	max-width:100%;
+}
+
+
+#article_content li ul, #article_content li ol{
+	margin: 0 auto;
+}
+
+#article_content li li{
+	list-style-position:outside;
+	margin-left:1em;
+}
+
 
 #article ol li::marker,#article ul li::marker{
     font-weight: bold;
@@ -1086,7 +1113,13 @@ a.lover:hover {
 
 #article_content .code-toolbar{
 	font-size:90%;
+	margin-bottom:1em;
 }
+
+#article_content li .code-toolbar{
+	margin-bottom:auto;
+}
+
 
 #article_content img {
 	clear: both;
@@ -2281,13 +2314,12 @@ span.kcomtime {
 	box-shadow: 0 1px 1px #ddd
 }
 
-.post-entry th, .post-entry td {
+#article_content th, #article_content td {
 	padding: 6px 10px 8px;
 	border: solid 1px #979797;
 	font-size: 95%
 }
-
-.post-entry table {
+#article_content table {
 	padding: 10px 0 20px
 }
 
@@ -2955,4 +2987,9 @@ svg[id^="mermaid-"] {
 
 .mermaid {
 	max-width:100%;
+}
+
+.mermaid g .label
+{
+	line-height:unset !important;
 }
