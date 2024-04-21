@@ -85,13 +85,7 @@ function comments_list($comment, $args, $depth) {
     }
     echo '</div>';
 }
-function comments_smilies() {
-    $a = array('mrgreen', 'razz', 'sad', 'smile', 'oops', 'grin', 'eek', '???', 'cool', 'lol', 'mad', 'twisted', 'roll', 'wink', 'idea', 'arrow', 'neutral', 'cry', '?', 'evil', 'shock', '!');
-    $b = array('mrgreen', 'razz', 'sad', 'smile', 'redface', 'biggrin', 'surprised', 'confused', 'cool', 'lol', 'mad', 'twisted', 'rolleyes', 'wink', 'idea', 'arrow', 'neutral', 'cry', 'question', 'evil', 'eek', 'exclaim');
-    for ($i = 0;$i < 22;$i++) {
-        echo '<a title="' . $a[$i] . '" href="javascript:grin(' . "':" . $a[$i] . ":'" . ')"><img src="' . get_bloginfo('template_directory') . '/images/smilies/icon_' . $b[$i] . '.gif" /></a>';
-    }
-}
+
 function comments_new($commentauthor, $limit) {
     global $wpdb;
     $sql = "SELECT DISTINCT ID, post_title, post_password, comment_ID, comment_post_ID, comment_author, comment_date_gmt, comment_approved,comment_author_email, comment_type,comment_author_url, 
@@ -126,11 +120,6 @@ function comments_new($commentauthor, $limit) {
     echo $output;
 };
 
-//修改评论表情调用路径
-function comments_smilies_src($img_src, $img, $siteurl) {
-    return get_bloginfo('template_directory') . '/images/smilies/' . $img;
-}
-add_filter('smilies_src', 'comments_smilies_src', 1, 10);
 
 //阻止站内文章Pingback
 function comments_ping(&$links) {

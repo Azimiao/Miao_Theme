@@ -24,7 +24,7 @@ if ( comments_open() ) {
 
 	<h3 class="coms_underline">
 
-		<?php comment_form_title('我来吐槽', '吐槽 %s'); ?>
+		<?php comment_form_title('发表评论', '回复 %s'); ?>
 
 	</h3>
 
@@ -32,7 +32,7 @@ if ( comments_open() ) {
 
 	<h3 class="queryinfo">
 
-		<?php printf('想吐槽您必须先<a href="%s">登录</a>！', wp_login_url( get_permalink() ) );?>
+		<?php printf('您必须<a href="%s">登录</a>以发表评论！', wp_login_url( get_permalink() ) );?>
 
 	</h3>
 
@@ -44,7 +44,7 @@ if ( comments_open() ) {
 
 		<div id="author-info" class="user-logged">
 
-			<?php printf('欢迎绅士 %s ~~', '<a href="'.get_option('siteurl').'/wp-admin/profile.php">'.$user_identity.'</a>'); ?> <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php echo '换马甲 &raquo;'; ?>"><?php echo '退出 &raquo;'; ?></a>
+			<?php printf('欢迎 %s ~~', '<a href="'.get_option('siteurl').'/wp-admin/profile.php">'.$user_identity.'</a>'); ?> <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php echo '换马甲 &raquo;'; ?>"><?php echo '退出 &raquo;'; ?></a>
 
 		</div>
 
@@ -53,7 +53,6 @@ if ( comments_open() ) {
 		<div id="comment-author-info" <?php if ( !empty($comment_author) ) echo 'style="display:none"'; ?>>
 
 			<p><label for="author">昵称</label><input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="14" tabindex="1" /><em>*</em></p>
-
 			<p><label for="email">邮箱</label><input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="25" tabindex="2" /><em>*</em></p>
 
 			<p class="comment-author-url" style="display:none;" ><label for="url">空间</label><input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="36" tabindex="3" /></p>
@@ -73,23 +72,15 @@ if ( comments_open() ) {
 		<?php } } ?>
 
 		<div class="post-area">
-			<div id="smileys"><?php comments_smilies();?></div>
 			<div class="comment-editor">
-			
-			   <a id="comment-smiley" href="javascript:;">表情</a><a href="javascript:SIMPALED.Editor.pre()">代码</a><a href="//www.appinn.com/markdown/" target="_blank">MD语法参考</a>
-
+			   <a>支持 MarkDown 语法</a>
 			</div>
-
-			
-			
-
 			<textarea name="comment" id="comment" cols="100%" rows="7" tabindex="4" onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
-
 		</div>
 
 		<div class="subcon">
 
-			<input class="btn primary" type="submit" name="submit" id="submit" tabindex="5" value="吐槽一下（Ctrl+Enter）" />
+			<input class="btn primary" type="submit" name="submit" id="submit" tabindex="5" value="提交评论（Ctrl+Enter）" />
 
 			<a rel="nofollow" id="cancel-comment-reply-link" href="javascript:;">取消</a>
 
@@ -113,23 +104,14 @@ if ( comments_open() ) {
 
 if ( have_comments() ) { 
 
-	$my_email = get_bloginfo ( 'admin_email' );
-
-	$str = "SELECT COUNT(*) FROM $wpdb->comments WHERE comment_post_ID = $post->ID AND comment_approved = '1' AND comment_type = '' AND comment_author_email";
-
-	$count_t = $post->comment_count;
-
-	$count_v = $wpdb->get_var("$str != '$my_email'");
-
-	$count_h = $wpdb->get_var("$str = '$my_email'");
-
+	
 ?>
 
 <div id="postcomments">
 
 	<h3 class="coms_underline" id="comments">
 
-		<span><a href="#"></a></span><strong><span class="count"><?php echo $count_v; ?></span></strong>位绅士参与评论
+		<span><a href="#"></a></span>评论区
 
 	</h3>
 
