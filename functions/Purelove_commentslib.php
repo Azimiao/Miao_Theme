@@ -1,5 +1,4 @@
 <?php
-
 //评论者近期评论数目
 function WelcomeCommentAuthorBack($email = '') {
     if (empty($email)) {
@@ -8,17 +7,8 @@ function WelcomeCommentAuthorBack($email = '') {
     global $wpdb;
     $past_30days = gmdate('Y-m-d H:i:s', ((time() - (24 * 60 * 60 * 90)) + (get_option('gmt_offset') * 3600)));
     $sql = "SELECT count(comment_author_email) AS times FROM $wpdb->comments
-
-
-
           WHERE comment_approved = '1'
-
-
-
           AND comment_author_email = '$email'
-
-
-
           AND comment_date >= '$past_30days'";
     $times = $wpdb->get_results($sql);
     $times = ($times[0]->times) ? $times[0]->times : 0;
@@ -85,33 +75,14 @@ function comments_list($comment, $args, $depth) {
     }
     echo '</div>';
 }
-
 function comments_new($commentauthor, $limit) {
     global $wpdb;
     $sql = "SELECT DISTINCT ID, post_title, post_password, comment_ID, comment_post_ID, comment_author, comment_date_gmt, comment_approved,comment_author_email, comment_type,comment_author_url, 
-
-
-
   SUBSTRING(comment_content,1,45) AS com_excerpt 
-
-
-
   FROM $wpdb->comments LEFT OUTER JOIN $wpdb->posts ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID) WHERE comment_approved = '1' 
-
-
-
   AND comment_type = '' 
-
-
-
   AND comment_author $commentauthor 
-
-
-
   AND post_password = '' 
-
-
-
   ORDER BY comment_date_gmt DESC LIMIT $limit ";
     $comments = $wpdb->get_results($sql);
     foreach ($comments as $comment) {
@@ -119,8 +90,6 @@ function comments_new($commentauthor, $limit) {
     }
     echo $output;
 };
-
-
 //阻止站内文章Pingback
 function comments_ping(&$links) {
     $home = get_option('home');
@@ -132,7 +101,6 @@ function time_ago($type = 'commennt', $day = 7) {
     if (time() - $d('U') > 60 * 60 * 24 * $day) return;
     echo ' (', human_time_diff($d('U'), strtotime(current_time('mysql', 0))), '前)';
 }
-
 //评论回应邮件通知
 function comment_mail_notify($comment_id) {
     $comment = get_comment($comment_id);
@@ -143,81 +111,24 @@ function comment_mail_notify($comment_id) {
         $to = trim(get_comment($parent_id)->comment_author_email);
         $subject = '您在 [' . get_option("blogname") . '] 的留言有了回复';
         $message = '<div style="background-color:#fff; border: 1px solid rgb(221, 221, 221); color:#111; font-size:12px; width: 600px; margin:0 auto; margin-top:10px;font-family:微软雅黑, Arial;">
-
-
-
 <div style="background: rgb(245, 245, 245); width:100%; height: 30px; color: rgb(113, 62, 221);">
-
-
-
 <span style="height: 30px; line-height: 30px;  font-size:12px;margin-left: 190px;">
-
-
-
 您在<a style="text-decoration:none; color: rgb(149, 136, 219);font-weight:600;"
-
-
-
 href="' . get_option('home') . '">' . get_option('blogname') . '
-
-
-
 </a>博客上的留言有回复啦！</span></div>
-
-
-
 <div style="width:90%; margin:0 auto">
-
-
-
 <p>' . trim(get_comment($parent_id)->comment_author) . ', 您好!</p>
-
-
-
 <p>您曾在 [' . get_option("blogname") . '] 的文章
-
-
-
 《' . get_the_title($comment->comment_post_ID) . '》 上发表评论:
-
-
-
 <p style="margin: 15px 0;background-color: rgb(241, 238, 238);  padding: 10px;">' . nl2br(get_comment($parent_id)->comment_content) . '</p>
-
-
-
 <p>' . trim($comment->comment_author) . ' 给您的回复如下:
-
-
-
 <p style="margin: 15px 0;background-color: rgb(241, 238, 238);  padding: 10px;">' . nl2br($comment->comment_content) . '</p>
-
-
-
 <p>您可以点击 <a style="text-decoration:none; color:#00bbff"
-
-
-
 href="' . htmlspecialchars(get_comment_link($parent_id)) . '">查看回复的完整內容</a></p>
-
-
-
 <p>欢迎再次光临 <a style="text-decoration:none; color:#00bbff"
-
-
-
 href="' . get_option('home') . '">' . get_option('blogname') . '</a></p>
-
-
-
 <p style="background: rgb(245, 242, 242);padding: 10px;text-align: right;">©2017 梓喵出没</p>
-
-
-
 </div>
-
-
-
 </div>';
         $from = "From: \"" . get_option('blogname') . "\" <$wp_email>";
         $headers = "$from\nContent-Type: text/html; charset=" . get_option('blog_charset') . "\n";
@@ -227,7 +138,6 @@ href="' . get_option('home') . '">' . get_option('blogname') . '</a></p>
     }
 }
 // add_action('comment_post', 'comment_mail_notify');
-
 //获取访客VIP样式
 function get_author_class($comment_author_email, $user_id) {
     global $wpdb;
@@ -244,6 +154,3 @@ function get_author_class($comment_author_email, $user_id) {
     else if ($author_count >= 640) echo '<a class="vip7" title="评论达人 LV.7"></a>';
 }
 ?>
-
-
-

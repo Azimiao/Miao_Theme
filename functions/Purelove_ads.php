@@ -25,56 +25,22 @@ class Purelove_ads extends WP_Widget {
         $title = $instance['title'];
         $code = $instance['code'];
 ?>
-
-
 		<p>
-
-
 			<label>
-
-
 				广告名称：
-
-
 				<input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" class="widefat" />
-
-
 			</label>
-
-
 		</p>
-
-
 		<p>
-
-
 			<label>
-
-
 				广告代码：
-
-
 				<textarea id="<?php echo $this->get_field_id('code'); ?>" name="<?php echo $this->get_field_name('code'); ?>" class="widefat" rows="10" style="font-family:Courier New;"><?php echo attribute_escape($code); ?></textarea>
-
-
 			</label>
-
-
 		</p>
-
-
 		<p>广告预览：</p>
-
-
 		<p style="text-align:center">
-
-
 			<?php echo $code; ?>
-
-
 		</p>
-
-
 <?php
     }
 }
